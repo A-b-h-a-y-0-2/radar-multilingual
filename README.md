@@ -28,5 +28,3 @@ Also detected the AUROC score over multilingual dataset.
 # Results for Human German Texts after Translations
 - true Positive rate : 43.58 %
 - false Positve rate : 56.41 %
-  
-- 
