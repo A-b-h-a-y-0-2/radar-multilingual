@@ -13,3 +13,7 @@ Also detected the AUROC score over multilingual dataset.
 - true Negative rate : 56.56 %
 - AUROC score : 76.04
 
+# Results for French
+- true Positive rate : 86.00 %
+- true Negative rate : 53.22 %
+- AUROC score : 67.75
