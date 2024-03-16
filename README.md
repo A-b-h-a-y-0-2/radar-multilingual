@@ -6,8 +6,8 @@ Also detected the AUROC score over multilingual dataset.
 # Results for German
 - true Positve rate : 90.47 %
 - false Positive rate : 09.53 %
-- true Negative rate : 32.87 % 
-- AUROC score : 76.0365
+- true Negative rate : 53.70 % 
+- AUROC score : 84.30
 
 # Results for Italian
 - true Positive rate : 79.59 %
@@ -24,6 +24,8 @@ Also detected the AUROC score over multilingual dataset.
 # Results for Human German Texts after Translations
 - true Positive rate : 66.31 %
 - false Positve rate : 33.68 %
+- true Negative rate : 94.6 %
+- AUROC acore : 91.69
 
 # Results for Human German Texts after Translations
 - true Positive rate : 43.58 %
