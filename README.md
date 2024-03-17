@@ -16,10 +16,10 @@ Also detected the AUROC score over multilingual dataset.
 - AUROC score : 79.21
 
 # Results for French
-- true Positive rate : 85.55 %
-- false Positive rate : 14.45 %
-- true Negative rate : 53.22 %
-- AUROC score : 68.13
+- true Positive rate : 86.00 %
+- false Positive rate : 14.00 %
+- true Negative rate : 62.70  %
+- AUROC score : 80.14
 
 # Results for German Texts after Translations
 - true Positive rate : 66.31 %
@@ -34,7 +34,7 @@ Also detected the AUROC score over multilingual dataset.
 - AUROC score : 83.58
 
 # Results for French after Translations 
-- true Positive rate : 35.82 %
-- false Positive rate : 64.17 %
-- true Negative rate : 97.01 %
-- AURUC : 83.95
+- true Positive rate : 41.82 %
+- false Positive rate : 58.17 %
+- true Negative rate : 95.9%
+- AURUC : 86.23
