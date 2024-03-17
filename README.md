@@ -58,7 +58,7 @@ Also detected the AUROC score over multilingual dataset.
 - False Positive rate ::  99.4 %
 - True Negative rate ::  98.7 %
 
-## Results over german
+## Results over german after translations
 - True Negative rate ::  0.438 %
 - True Positive rate ::  0.237 %
 - False Positive rate ::  0.763 %
