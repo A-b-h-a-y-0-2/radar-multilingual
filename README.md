@@ -1,5 +1,5 @@
 # radar : Multilingual analysis
-
+all the pipelines have been computed over 1000 samples of human and ai corpus
 The True positve rate for detecting texts as Humans and True Negative rate on AI.
 Also detected the AUROC score over multilingual dataset.
 
@@ -33,8 +33,12 @@ Also detected the AUROC score over multilingual dataset.
 - true Negative rate : 95.90 %
 - AUROC score : 83.58
 
+
 # Results for French after Translations 
 - true Positive rate : 41.82 %
 - false Positive rate : 58.17 %
 - true Negative rate : 95.9%
 - AURUC : 86.23
+
+
+### ROBERTA analysis
