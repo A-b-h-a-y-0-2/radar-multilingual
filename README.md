@@ -42,3 +42,33 @@ Also detected the AUROC score over multilingual dataset.
 
 
 # ROBERTA analysis
+
+## Results over French
+- True Positive rate ::  0.3 %
+- False Positive rate ::  99.7 %
+- True Negative rate ::  98.7 %
+  
+## Results over French after Translations
+- True Positive rate ::  23.3 %
+- False Positive rate ::  76.7 %
+- True Negative rate ::  46.6 %
+
+## Results over german
+- True Positive rate ::  0.60 %
+- False Positive rate ::  99.4 %
+- True Negative rate ::  98.7 %
+
+## Results over german
+- True Negative rate ::  0.438 %
+- True Positive rate ::  0.237 %
+- False Positive rate ::  0.763 %
+
+## Results over Italian
+- True Positive rate ::  00.20 %
+- False Positive rate ::  99.8 %
+- True Negative rate ::  98.30 %
+
+## Results over Italian after translations 
+- True Positive rate ::  18.5 %
+- False Positive rate ::  81.5 %
+- True Negative rate ::  50.94 %
