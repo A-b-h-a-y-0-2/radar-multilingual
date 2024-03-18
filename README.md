@@ -59,9 +59,9 @@ Also detected the AUROC score over multilingual dataset.
 - True Negative rate ::  98.7 %
 
 ## Results over german after translations
-- True Negative rate ::  0.438 %
-- True Positive rate ::  0.237 %
-- False Positive rate ::  0.763 %
+- True Negative rate ::  43.8 %
+- True Positive rate ::  23.7 %
+- False Positive rate :: 76.3 %
 
 ## Results over Italian
 - True Positive rate ::  00.20 %
@@ -72,3 +72,36 @@ Also detected the AUROC score over multilingual dataset.
 - True Positive rate ::  18.5 %
 - False Positive rate ::  81.5 %
 - True Negative rate ::  50.94 %
+
+# Log Rank analysis
+
+## Results over French
+- True Positive rate ::  57.8 %
+- False Positive rate ::  24.3 %
+- True Negative rate ::  64.2 %
+  
+## Results over French after Translations
+- True Positive rate ::  29.8 %
+- False Positive rate ::  58.7 %
+- True Negative rate ::  91.2 %
+
+## Results over german
+- True Positive rate ::  65.4 %
+- False Positive rate ::  21.8 %
+- True Negative rate ::  62.7 %
+
+## Results over german after translations
+- True Negative rate ::  88.6 %
+- True Positive rate ::  35.1 %
+- False Positive rate ::  56.3 %
+
+## Results over Italian
+- True Positive rate ::  96.9 %
+- False Positive rate ::  1.8 %
+- True Negative rate ::  36.16 %
+
+## Results over Italian after translations 
+- True Positive rate ::  43.00 %
+- False Positive rate :: 48.00 %
+- True Negative rate ::  85.11 %
+
