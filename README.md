@@ -146,15 +146,15 @@ Also detected the AUROC score over multilingual dataset.
 </tr>
       <tr>
     <td>Pipeline 2</td>
-    <td style="text-align:center">92.2 &plusmn 8.84
-    <td style="text-align:center">95.3 &plusmn 12
-    <td style="text-align:center">84.5 &plusmn 22.1
-    <td style="text-align:center">92.97 &plusmn 8.95
-    <td style="text-align:center">93.18 &plusmn 11.82
-    <td style="text-align:center">91.4 &plusmn 17.1
-    <td style="text-align:center">85.94 &plusmn 13.75
-    <td style="text-align:center">88.58 &plusmn 12.43
-    <td style="text-align:center">85.94 &plusmn 13.75
+    <td style="text-align:center">
+    <td style="text-align:center">TPR: 95.90%<br/>FNR: 56.41%
+    <td style="text-align:center">
+    <td style="text-align:center">
+    <td style="text-align:center">TPR: 94.60%<br/>FNR: 33.6%
+    <td style="text-align:center">
+    <td style="text-align:center">
+    <td style="text-align:center">TPR: 95.90%<br/>FNR: 58.30%
+    <td style="text-align:center">
 </tr>
     </tbody>
     <tbody>
