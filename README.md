@@ -1,4 +1,4 @@
-![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/4e5d0268-1162-4777-94fb-4bad7d4529bb)
+
 # radar : Multilingual analysis
 all the pipelines have been computed over 1000 samples of human and ai corpus
 The True positve rate for detecting texts as Humans and True Negative rate on AI.
@@ -106,7 +106,9 @@ Also detected the AUROC score over multilingual dataset.
 - False Positive rate :: 48.00 %
 - True Negative rate ::  85.11 %
 ## Summary
-- PipeLine 1 : human corpus  -> AI corpus -> Detectors
+- PipeLine 1 : human corpus  -> AI corpus -> Detectors (shown in the image below) ::
+![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/4e5d0268-1162-4777-94fb-4bad7d4529bb)
+
 - Pipeline 2 : Human corpus -> AI corpus -> Translators  -> Detctors
 
 
