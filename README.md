@@ -105,3 +105,83 @@ Also detected the AUROC score over multilingual dataset.
 - False Positive rate :: 48.00 %
 - True Negative rate ::  85.11 %
 
+
+
+<div class="block-language-tx"><table>
+<caption id="prototypetable">TABLE-III: Results of Multilingual analysis over different MGT detectors. </caption>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center" colspan="3">Italian</th>
+<th style="text-align:center" colspan="3">German</th>
+<th style="text-align:center" colspan="3">French</th>
+</tr>
+<tr>
+<th>Detector used</th>
+<th style="text-align:center">OpenAi's RoBERTa</th>
+<th style="text-align:right">RADAR</th>
+<th style="text-align:right">logrank</th>
+<th style="text-align:center">OpenAi's RoBERTa</th>
+<th style="text-align:right">RADAR</th>
+<th style="text-align:right">Logrank</th>
+<th style="text-align:center">OpenAi's RoBERTa</th>
+<th style="text-align:right">RADAR</th>
+<th style="text-align:right">Logrank</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Pipeline 1</td>
+    <td style="text-align:center"> True Positive 50% <\br>  True Negative 50
+    <td style="text-align:center">95.3 &plusmn 12
+    <td style="text-align:center">84.5 &plusmn 22.1
+    <td style="text-align:center">92.97 &plusmn 8.95
+    <td style="text-align:center">93.18 &plusmn 11.82
+    <td style="text-align:center">91.4 &plusmn 17.1
+    <td style="text-align:center">85.94 &plusmn 13.75
+    <td style="text-align:center">88.58 &plusmn 12.43
+    <td style="text-align:center">85.94 &plusmn 13.75
+</tr>
+      <tr>
+    <td>Pipeline 2</td>
+    <td style="text-align:center">92.2 &plusmn 8.84
+    <td style="text-align:center">95.3 &plusmn 12
+    <td style="text-align:center">84.5 &plusmn 22.1
+    <td style="text-align:center">92.97 &plusmn 8.95
+    <td style="text-align:center">93.18 &plusmn 11.82
+    <td style="text-align:center">91.4 &plusmn 17.1
+    <td style="text-align:center">85.94 &plusmn 13.75
+    <td style="text-align:center">88.58 &plusmn 12.43
+    <td style="text-align:center">85.94 &plusmn 13.75
+</tr>
+      <tr>
+    <td>Pipeline 3</td>
+    <td style="text-align:center">92.2 &plusmn 8.84
+    <td style="text-align:center">95.3 &plusmn 12
+    <td style="text-align:center">84.5 &plusmn 22.1
+    <td style="text-align:center">92.97 &plusmn 8.95
+    <td style="text-align:center">93.18 &plusmn 11.82
+    <td style="text-align:center">91.4 &plusmn 17.1
+    <td style="text-align:center">85.94 &plusmn 13.75
+    <td style="text-align:center">88.58 &plusmn 12.43
+    <td style="text-align:center">85.94 &plusmn 13.75
+</tr>
+      <tr>
+    <td>Pipeline 4</td>
+    <td style="text-align:center">92.2 &plusmn 8.84
+    <td style="text-align:center">95.3 &plusmn 12
+    <td style="text-align:center">84.5 &plusmn 22.1
+    <td style="text-align:center">92.97 &plusmn 8.95
+    <td style="text-align:center">93.18 &plusmn 11.82
+    <td style="text-align:center">91.4 &plusmn 17.1
+    <td style="text-align:center">85.94 &plusmn 13.75
+    <td style="text-align:center">88.58 &plusmn 12.43
+    <td style="text-align:center">85.94 &plusmn 13.75
+</tr>
+    </tbody>
+    <tbody>
+
+</tbody>
+</table>
+</div>
+
