@@ -109,7 +109,9 @@ Also detected the AUROC score over multilingual dataset.
 - PipeLine 1 : human corpus  -> AI corpus -> Detectors (shown in the image below) ::
 ![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/4e5d0268-1162-4777-94fb-4bad7d4529bb)
 
-- Pipeline 2 : Human corpus -> AI corpus -> Translators  -> Detctors
+- Pipeline 2 : Human corpus -> AI corpus -> Translators  -> Detctors (shown in the image below) ::
+![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/83a5df69-c5fa-42ae-b0ec-0e3b2cb42679)
+
 
 
 <div class="block-language-tx"><table>
