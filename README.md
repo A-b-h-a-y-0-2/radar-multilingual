@@ -105,6 +105,8 @@ Also detected the AUROC score over multilingual dataset.
 - False Positive rate :: 48.00 %
 - True Negative rate ::  85.11 %
 
+- PipeLine 1 : human corpus  -> AI corpus -> Detectors
+- Pipeline 2 : Human corpus -> AI corpus -> Translators  -> Detctors
 
 
 <div class="block-language-tx"><table>
@@ -132,42 +134,18 @@ Also detected the AUROC score over multilingual dataset.
     <tbody>
     <tr>
     <td>Pipeline 1</td>
-    <td style="text-align:center"> True Positive 50% <\br>  True Negative 50
-    <td style="text-align:center">95.3 &plusmn 12
-    <td style="text-align:center">84.5 &plusmn 22.1
-    <td style="text-align:center">92.97 &plusmn 8.95
-    <td style="text-align:center">93.18 &plusmn 11.82
-    <td style="text-align:center">91.4 &plusmn 17.1
-    <td style="text-align:center">85.94 &plusmn 13.75
-    <td style="text-align:center">88.58 &plusmn 12.43
-    <td style="text-align:center">85.94 &plusmn 13.75
+    <td style="text-align:center"> 
+    <td style="text-align:center">TPR: 56.34%<br/>FNR: 20.42% 
+    <td style="text-align:center">
+    <td style="text-align:center">
+    <td style="text-align:center">TPR: 53.70%<br/>FNR: 9.53%
+    <td style="text-align:center">
+    <td style="text-align:center">
+    <td style="text-align:center">TPR: 62.70%<br/>FNR: 14.00%
+    <td style="text-align:center">
 </tr>
       <tr>
     <td>Pipeline 2</td>
-    <td style="text-align:center">92.2 &plusmn 8.84
-    <td style="text-align:center">95.3 &plusmn 12
-    <td style="text-align:center">84.5 &plusmn 22.1
-    <td style="text-align:center">92.97 &plusmn 8.95
-    <td style="text-align:center">93.18 &plusmn 11.82
-    <td style="text-align:center">91.4 &plusmn 17.1
-    <td style="text-align:center">85.94 &plusmn 13.75
-    <td style="text-align:center">88.58 &plusmn 12.43
-    <td style="text-align:center">85.94 &plusmn 13.75
-</tr>
-      <tr>
-    <td>Pipeline 3</td>
-    <td style="text-align:center">92.2 &plusmn 8.84
-    <td style="text-align:center">95.3 &plusmn 12
-    <td style="text-align:center">84.5 &plusmn 22.1
-    <td style="text-align:center">92.97 &plusmn 8.95
-    <td style="text-align:center">93.18 &plusmn 11.82
-    <td style="text-align:center">91.4 &plusmn 17.1
-    <td style="text-align:center">85.94 &plusmn 13.75
-    <td style="text-align:center">88.58 &plusmn 12.43
-    <td style="text-align:center">85.94 &plusmn 13.75
-</tr>
-      <tr>
-    <td>Pipeline 4</td>
     <td style="text-align:center">92.2 &plusmn 8.84
     <td style="text-align:center">95.3 &plusmn 12
     <td style="text-align:center">84.5 &plusmn 22.1
