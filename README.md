@@ -1,5 +1,68 @@
 
-# radar : Multilingual analysis
+## Summary
+### PipeLine 1 : human corpus  -> AI corpus -> Detectors (shown in the image below) ::
+![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/4e5d0268-1162-4777-94fb-4bad7d4529bb)
+
+### Pipeline 2 : Human corpus -> AI corpus -> Translators  -> Detctors (shown in the image below) ::
+![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/83a5df69-c5fa-42ae-b0ec-0e3b2cb42679)
+
+
+
+<div class="block-language-tx"><table>
+<caption id="prototypetable">TABLE-III: Results of Multilingual analysis over different MGT detectors. </caption>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center" colspan="3">Italian</th>
+<th style="text-align:center" colspan="3">German</th>
+<th style="text-align:center" colspan="3">French</th>
+</tr>
+<tr>
+<th>Detector used</th>
+<th style="text-align:center">OpenAi's RoBERTa</th>
+<th style="text-align:right">RADAR</th>
+<th style="text-align:right">logrank</th>
+<th style="text-align:center">OpenAi's RoBERTa</th>
+<th style="text-align:right">RADAR</th>
+<th style="text-align:right">Logrank</th>
+<th style="text-align:center">OpenAi's RoBERTa</th>
+<th style="text-align:right">RADAR</th>
+<th style="text-align:right">Logrank</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Pipeline 1</td>
+    <td style="text-align:center">TPR: 98.30%<br/>FNR: 99.8% 
+    <td style="text-align:center">TPR: 56.34%<br/>FNR: 20.42% 
+    <td style="text-align:center">TPR: 36.16%<br/>FNR: 1.8%
+    <td style="text-align:center">TPR: 98.70%<br/>FNR: 99.4%
+    <td style="text-align:center">TPR: 53.70%<br/>FNR: 9.53%
+    <td style="text-align:center">TPR: 62.70%<br/>FNR: 21.8%
+    <td style="text-align:center">TPR: 98.7%<br/>FNR: 99.7% 
+    <td style="text-align:center">TPR: 62.70%<br/>FNR: 14.00%
+    <td style="text-align:center">TPR: 64.20%<br/>FNR: 24.3%
+</tr>
+      <tr>
+    <td>Pipeline 2</td>
+    <td style="text-align:center">TPR: 50.94%<br/>FNR: 81.5% 
+    <td style="text-align:center">TPR: 95.90%<br/>FNR: 56.41%
+    <td style="text-align:center">TPR: 85.11%<br/>FNR: 48.00%
+    <td style="text-align:center">TPR: 56.20%<br/>FNR: 76.30% 
+    <td style="text-align:center">TPR: 94.60%<br/>FNR: 33.60%
+    <td style="text-align:center">TPR: 88.60%<br/>FNR: 56.30%
+    <td style="text-align:center">TPR: 53.40%<br/>FNR: 76.70% 
+    <td style="text-align:center">TPR: 95.90%<br/>FNR: 58.30%
+    <td style="text-align:center">TPR: 91.20%<br/>FNR: 58.70%
+</tr>
+    </tbody>
+    <tbody>
+
+</tbody>
+</table>
+</div>
+
+# Detailed Analysis
 all the pipelines have been computed over 1000 samples of human and ai corpus
 The True positve rate for detecting texts as Humans and True Negative rate on AI.
 Also detected the AUROC score over multilingual dataset.
@@ -105,66 +168,4 @@ Also detected the AUROC score over multilingual dataset.
 - True Positive rate ::  43.00 %
 - False Positive rate :: 48.00 %
 - True Negative rate ::  85.11 %
-## Summary
-- PipeLine 1 : human corpus  -> AI corpus -> Detectors (shown in the image below) ::
-![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/4e5d0268-1162-4777-94fb-4bad7d4529bb)
-
-- Pipeline 2 : Human corpus -> AI corpus -> Translators  -> Detctors (shown in the image below) ::
-![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/83a5df69-c5fa-42ae-b0ec-0e3b2cb42679)
-
-
-
-<div class="block-language-tx"><table>
-<caption id="prototypetable">TABLE-III: Results of Multilingual analysis over different MGT detectors. </caption>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:center" colspan="3">Italian</th>
-<th style="text-align:center" colspan="3">German</th>
-<th style="text-align:center" colspan="3">French</th>
-</tr>
-<tr>
-<th>Detector used</th>
-<th style="text-align:center">OpenAi's RoBERTa</th>
-<th style="text-align:right">RADAR</th>
-<th style="text-align:right">logrank</th>
-<th style="text-align:center">OpenAi's RoBERTa</th>
-<th style="text-align:right">RADAR</th>
-<th style="text-align:right">Logrank</th>
-<th style="text-align:center">OpenAi's RoBERTa</th>
-<th style="text-align:right">RADAR</th>
-<th style="text-align:right">Logrank</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>Pipeline 1</td>
-    <td style="text-align:center">TPR: 98.30%<br/>FNR: 99.8% 
-    <td style="text-align:center">TPR: 56.34%<br/>FNR: 20.42% 
-    <td style="text-align:center">TPR: 36.16%<br/>FNR: 1.8%
-    <td style="text-align:center">TPR: 98.70%<br/>FNR: 99.4%
-    <td style="text-align:center">TPR: 53.70%<br/>FNR: 9.53%
-    <td style="text-align:center">TPR: 62.70%<br/>FNR: 21.8%
-    <td style="text-align:center">TPR: 98.7%<br/>FNR: 99.7% 
-    <td style="text-align:center">TPR: 62.70%<br/>FNR: 14.00%
-    <td style="text-align:center">TPR: 64.20%<br/>FNR: 24.3%
-</tr>
-      <tr>
-    <td>Pipeline 2</td>
-    <td style="text-align:center">TPR: 50.94%<br/>FNR: 81.5% 
-    <td style="text-align:center">TPR: 95.90%<br/>FNR: 56.41%
-    <td style="text-align:center">TPR: 85.11%<br/>FNR: 48.00%
-    <td style="text-align:center">TPR: 56.20%<br/>FNR: 76.30% 
-    <td style="text-align:center">TPR: 94.60%<br/>FNR: 33.60%
-    <td style="text-align:center">TPR: 88.60%<br/>FNR: 56.30%
-    <td style="text-align:center">TPR: 53.40%<br/>FNR: 76.70% 
-    <td style="text-align:center">TPR: 95.90%<br/>FNR: 58.30%
-    <td style="text-align:center">TPR: 91.20%<br/>FNR: 58.70%
-</tr>
-    </tbody>
-    <tbody>
-
-</tbody>
-</table>
-</div>
 
