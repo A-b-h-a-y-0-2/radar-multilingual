@@ -104,7 +104,7 @@ Also detected the AUROC score over multilingual dataset.
 - True Positive rate ::  43.00 %
 - False Positive rate :: 48.00 %
 - True Negative rate ::  85.11 %
-
+## Summary
 - PipeLine 1 : human corpus  -> AI corpus -> Detectors
 - Pipeline 2 : Human corpus -> AI corpus -> Translators  -> Detctors
 
@@ -134,27 +134,27 @@ Also detected the AUROC score over multilingual dataset.
     <tbody>
     <tr>
     <td>Pipeline 1</td>
-    <td style="text-align:center"> 
+    <td style="text-align:center">TPR: 98.30%<br/>FNR: 99.8% 
     <td style="text-align:center">TPR: 56.34%<br/>FNR: 20.42% 
-    <td style="text-align:center">
-    <td style="text-align:center">
+    <td style="text-align:center">TPR: 36.16%<br/>FNR: 1.8%
+    <td style="text-align:center">TPR: 98.70%<br/>FNR: 99.4%
     <td style="text-align:center">TPR: 53.70%<br/>FNR: 9.53%
-    <td style="text-align:center">
-    <td style="text-align:center">
+    <td style="text-align:center">TPR: 62.70%<br/>FNR: 21.8%
+    <td style="text-align:center">TPR: 98.7%<br/>FNR: 99.7% 
     <td style="text-align:center">TPR: 62.70%<br/>FNR: 14.00%
-    <td style="text-align:center">
+    <td style="text-align:center">TPR: 64.20%<br/>FNR: 24.3%
 </tr>
       <tr>
     <td>Pipeline 2</td>
-    <td style="text-align:center">
+    <td style="text-align:center">TPR: 50.94%<br/>FNR: 81.5% 
     <td style="text-align:center">TPR: 95.90%<br/>FNR: 56.41%
-    <td style="text-align:center">
-    <td style="text-align:center">
-    <td style="text-align:center">TPR: 94.60%<br/>FNR: 33.6%
-    <td style="text-align:center">
-    <td style="text-align:center">
+    <td style="text-align:center">TPR: 85.11%<br/>FNR: 48.00%
+    <td style="text-align:center">TPR: 56.20%<br/>FNR: 76.30% 
+    <td style="text-align:center">TPR: 94.60%<br/>FNR: 33.60%
+    <td style="text-align:center">TPR: 88.60%<br/>FNR: 56.30%
+    <td style="text-align:center">TPR: 53.40%<br/>FNR: 76.70% 
     <td style="text-align:center">TPR: 95.90%<br/>FNR: 58.30%
-    <td style="text-align:center">
+    <td style="text-align:center">TPR: 91.20%<br/>FNR: 58.70%
 </tr>
     </tbody>
     <tbody>
