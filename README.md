@@ -64,25 +64,26 @@
 
 
 # Detailed Analysis
-all the pipelines have been computed over 1000 samples of human and ai corpus
-The True Negativerate for detecting Human texts as Humans and True Positive rate for AI texts as AI.
-Also detected the AUROC score over multilingual dataset.
+False Positive : human text as AI
+True Positive : AI text as AI
+False Negative : AI text as AI
+True Negative : Human texts as human 
 
 ## Results for German
 - true Positive rate : 90.47 %
-- false Negative rate : 09.53 %
+- False Positive Rate: 09.53 %
 - true Positive rate : 53.70 % 
 - AUROC score : 84.30
 
 ## Results for Italian
 - true Negative rate : 79.59 %
-- false Negative rate : 20.41 %
+- False Positive Rate: 20.41 %
 - true Positive rate : 56.34 %
 - AUROC score : 79.21
 
 ## Results for French
 - true Negative rate : 86.00 %
-- false Negative rate : 14.00 %
+- False Positive Rate: 14.00 %
 - true Positive rate : 62.70  %
 - AUROC score : 80.14
 
@@ -101,7 +102,7 @@ Also detected the AUROC score over multilingual dataset.
 
 ## Results for French after Translations 
 - true Negative rate : 41.82 %
-- false Negative rate : 58.17 %
+- False Positive Rate: 58.17 %
 - true Positive rate : 95.9%
 - AURUC : 86.23
 
@@ -110,64 +111,64 @@ Also detected the AUROC score over multilingual dataset.
 
 ## Results over French
 - True Negative rate ::  0.3 %
-- False Negative rate ::  99.7 %
+- False Positive Rate::  99.7 %
 - True Positive rate ::  98.7 %
   
 ## Results over French after Translations
 - True Negative rate ::  23.3 %
-- False Negative rate ::  76.7 %
+- False Positive Rate::  76.7 %
 - True Positive rate ::  46.6 %
 
 ## Results over german
 - True Negative rate ::  0.60 %
-- False Negative rate ::  99.4 %
+- False Positive Rate::  99.4 %
 - True Positive rate ::  98.7 %
 
 ## Results over german after translations
 - True Positive rate ::  43.8 %
 - True Negative rate ::  23.7 %
-- False Negative rate :: 76.3 %
+- False Positive Rate:: 76.3 %
 
 ## Results over Italian
 - True Negative rate ::  00.20 %
-- False Negative rate ::  99.8 %
+- False Positive Rate::  99.8 %
 - True Positive rate ::  98.30 %
 
 ## Results over Italian after translations 
 - True Negative rate ::  18.5 %
-- False Negative rate ::  81.5 %
+- False Positive Rate::  81.5 %
 - True Positive rate ::  50.94 %
 
 # Log Rank analysis
 
 ## Results over French
 - True Negative rate ::  57.8 %
-- False Negative rate ::  24.3 %
+- False Positive Rate::  24.3 %
 - True Positive rate ::  64.2 %
   
 ## Results over French after Translations
 - True Negative rate ::  29.8 %
-- False Negative rate ::  58.7 %
+- False Positive Rate::  58.7 %
 - True Positive rate ::  91.2 %
 
 ## Results over german
 - True Negative rate ::  65.4 %
-- False Negative rate ::  21.8 %
+- False Positive Rate::  21.8 %
 - True Positive rate ::  62.7 %
 
 ## Results over german after translations
 - True Positive rate ::  88.6 %
 - True Negative rate ::  35.1 %
-- False Negative rate ::  56.3 %
+- False Positive Rate::  56.3 %
 
 ## Results over Italian
 - True Negative rate ::  96.9 %
-- False Negative rate ::  1.8 %
+- False Positive Rate::  1.8 %
 - True Positive rate ::  36.16 %
 
 ## Results over Italian after translations 
 - True Negative rate ::  43.00 %
-- False Negative rate :: 48.00 %
+- False Positive Rate:: 48.00 %
 - True Positive rate ::  85.11 %
 
 
