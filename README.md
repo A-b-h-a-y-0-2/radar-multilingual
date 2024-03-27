@@ -64,7 +64,7 @@
 
 
 # Detailed Analysis
-False Positive : human text as AI
-True Positive : AI text as AI
-False Negative : AI text as human
-True Negative : Human texts as human 
+- False Positive : human text as AI
+- True Positive : AI text as AI
+- False Negative : AI text as human
+- True Negative : Human texts as human 
