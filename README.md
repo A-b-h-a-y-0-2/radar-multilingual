@@ -33,27 +33,27 @@
     <tbody>
     <tr>
     <td>Pipeline 1</td>
-    <td style="text-align:center">TPR: 98.30%<br/>FNR: 99.8% 
-    <td style="text-align:center">TPR: 56.34%<br/>FNR: 20.42% 
-    <td style="text-align:center">TPR: 36.16%<br/>FNR: 1.8%
-    <td style="text-align:center">TPR: 98.70%<br/>FNR: 99.4%
-    <td style="text-align:center">TPR: 53.70%<br/>FNR: 9.53%
-    <td style="text-align:center">TPR: 62.70%<br/>FNR: 21.8%
-    <td style="text-align:center">TPR: 98.7%<br/>FNR: 99.7% 
-    <td style="text-align:center">TPR: 62.70%<br/>FNR: 14.00%
-    <td style="text-align:center">TPR: 64.20%<br/>FNR: 24.3%
+    <td style="text-align:center">TPR: 98.30%<br/>FPR: 99.8% 
+    <td style="text-align:center">TPR: 56.34%<br/>FPR: 20.42% 
+    <td style="text-align:center">TPR: 36.16%<br/>FPR: 1.8%
+    <td style="text-align:center">TPR: 98.70%<br/>FPR: 99.4%
+    <td style="text-align:center">TPR: 53.70%<br/>FPR: 9.53%
+    <td style="text-align:center">TPR: 62.70%<br/>FPR: 21.8%
+    <td style="text-align:center">TPR: 98.7%<br/>FPR: 99.7% 
+    <td style="text-align:center">TPR: 62.70%<br/>FPR: 14.00%
+    <td style="text-align:center">TPR: 64.20%<br/>FPR: 24.3%
 </tr>
       <tr>
     <td>Pipeline 2</td>
-    <td style="text-align:center">TPR: 50.94%<br/>FNR: 81.5% 
-    <td style="text-align:center">TPR: 95.90%<br/>FNR: 56.41%
-    <td style="text-align:center">TPR: 85.11%<br/>FNR: 48.00%
-    <td style="text-align:center">TPR: 56.20%<br/>FNR: 76.30% 
-    <td style="text-align:center">TPR: 94.60%<br/>FNR: 33.60%
-    <td style="text-align:center">TPR: 88.60%<br/>FNR: 56.30%
-    <td style="text-align:center">TPR: 53.40%<br/>FNR: 76.70% 
-    <td style="text-align:center">TPR: 95.90%<br/>FNR: 58.30%
-    <td style="text-align:center">TPR: 91.20%<br/>FNR: 58.70%
+    <td style="text-align:center">TPR: 50.94%<br/>FPR: 81.5% 
+    <td style="text-align:center">TPR: 95.90%<br/>FPR: 56.41%
+    <td style="text-align:center">TPR: 85.11%<br/>FPR: 48.00%
+    <td style="text-align:center">TPR: 56.20%<br/>FPR: 76.30% 
+    <td style="text-align:center">TPR: 94.60%<br/>FPR: 33.60%
+    <td style="text-align:center">TPR: 88.60%<br/>FPR: 56.30%
+    <td style="text-align:center">TPR: 53.40%<br/>FPR: 76.70% 
+    <td style="text-align:center">TPR: 95.90%<br/>FPR: 58.30%
+    <td style="text-align:center">TPR: 91.20%<br/>FPR: 58.70%
 </tr>
     </tbody>
     <tbody>
@@ -66,7 +66,7 @@
 # Detailed Analysis
 False Positive : human text as AI
 True Positive : AI text as AI
-False Negative : AI text as AI
+False Negative : AI text as human
 True Negative : Human texts as human 
 
 ## Results for German
