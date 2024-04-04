@@ -10,3 +10,6 @@
 [Link to sheet.](https://docs.google.com/spreadsheets/d/1AKM0zlMQZoomOVhyPTVduYcDxLA_gdeOGynHypB8jQQ/edit?usp=sharing)
 
 ![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/0e42d46b-4c84-46f1-a4cf-b11678c4aa82)
+
+## Results using llama2-chat
+![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/cc97e4f8-d413-4352-90b8-cbe7cf3da8bb)
