@@ -29,4 +29,16 @@ python3 script.py --language French --tr True --model RADAR --ai ai_fr.txt --out
 - human_test.csv #path/to/output/res
 - ai_test.csv #path/to/output/res
 - number of samples
+
+  Instructions to generate ai corpus
+-example code
+
+```rb
+python3 ai_generate.py --language French --model llama --device cuda --samples 10 --output_ai ai_test.txt
+```
+- language
+- model {llama, vicuna-7b}
+- device
+- samples
+- output_ai
   
