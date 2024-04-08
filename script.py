@@ -5,6 +5,7 @@ import torch
 from tqdm import tqdm
 from transformers import pipeline
 import torch.nn.functional as F
+import csv
 
 
 def get_args():
@@ -68,6 +69,7 @@ def load_data(language, ai, samples):
                 line = f.readline()
     else:
         print('Language not supported')
+    ai_text = ai_text[:samples]
     return human_text, ai_text
 
 def analyse_radar(human, ai, output_h, output_ai):
@@ -89,9 +91,10 @@ def analyse_radar(human, ai, output_h, output_ai):
             inputs = {k:v.to(device) for k,v in inputs.items()}
             output_probs = F.log_softmax(detector(**inputs).logits,-1)[:,0].exp().tolist()
             output_probs_list.append(output_probs)
-    with open(output_h, 'w') as f:
+    with open(output_h, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs_list:
-            f.write("%s\n" % item)
+            writer.writerow(item)
     
     Text_input = ai
     output_probs_list =[]
@@ -102,9 +105,10 @@ def analyse_radar(human, ai, output_h, output_ai):
             inputs = {k:v.to(device) for k,v in inputs.items()}
             output_probs = F.log_softmax(detector(**inputs).logits,-1)[:,0].exp().tolist()
             output_probs_list.append(output_probs)
-    with open(output_ai, 'w') as f:
+    with open(output_ai, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs_list:
-            f.write("%s\n" % item)
+            writer.writerow(item)
 
 def analyse_roberta(human, ai, output_h, output_ai):
     pipe = pipeline("text-classification", model="openai-community/roberta-large-openai-detector")
@@ -112,17 +116,19 @@ def analyse_roberta(human, ai, output_h, output_ai):
     for i in tqdm(human):
         output = pipe(i)
         output_probs.append(output)
-    with open(output_h, 'w') as f:
+    with open(output_h, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs:
-            f.write("%s\n" % item)
+            writer.writerow(item)
     
     output_probs = []
     for i in tqdm(ai):
         output = pipe(i)
         output_probs.append(output)
-    with open(output_ai, 'w') as f:
+    with open(output_ai, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs:
-            f.write("%s\n" % item)
+            writer.writerow(item)
 
 def get_rank(text, base_model, base_tokenizer,log=False ):
     DEVICE = 'cuda'
@@ -172,17 +178,20 @@ def analyse_logrank(human, ai, output_h, output_ai):
     for i in tqdm(human):
         output = get_rank(i, base_model, base_tokenizer)
         output_probs.append(output)
-    with open(output_h, 'w') as f:
+    with open(output_h, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs:
-            f.write("%s\n" % item)
+            writer.writerow(item)
 
     output_probs = []
     for i in tqdm(ai):
         output = get_rank(i, base_model, base_tokenizer)
         output_probs.append(output)
-    with open(output_ai, 'w') as f:
+    with open(output_ai, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs:
-            f.write("%s\n" % item)
+            writer.writerow(item)
+
 def analyse_logp(human, ai, output_h, output_ai):
     base_tokenizer = transformers.AutoTokenizer.from_pretrained("openai-community/gpt2-medium")
     base_model = transformers.AutoModelForCausalLM.from_pretrained("openai-community/gpt2-medium")
@@ -192,17 +201,19 @@ def analyse_logp(human, ai, output_h, output_ai):
     for i in tqdm(human):
         output = get_ll(i, base_tokenizer, base_model)
         output_probs.append(output)
-    with open(output_h, 'w') as f:
+    with open(output_h, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs:
-            f.write("%s\n" % item)
+            writer.writerow(item)
 
     output_probs = []
     for i in tqdm(ai):
         output = get_ll(i, base_tokenizer, base_model)
         output_probs.append(output)
-    with open(output_ai, 'w') as f:
+    with open(output_ai, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs:
-            f.write("%s\n" % item)
+            writer.writerow(item)
 
 def analyse_entropy(human, ai, output_h, output_ai):
     base_tokenizer = transformers.AutoTokenizer.from_pretrained("openai-community/gpt2-medium")
@@ -213,18 +224,20 @@ def analyse_entropy(human, ai, output_h, output_ai):
     for i in tqdm(human):
         output = get_entropy(i, base_tokenizer, base_model)
         output_probs.append(output)
-    with open(output_h, 'w') as f:
+    with open(output_h, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs:
-            f.write("%s\n" % item)
+            writer.writerow(item)
 
     output_probs = []
     for i in tqdm(ai):
         output = get_entropy(i, base_tokenizer, base_model)
         output_probs.append(output)
-    with open(output_ai, 'w') as f:
+    with open(output_ai, 'w', newline= '\n') as f:
+        writer = csv.writer(f)
         for item in output_probs:
-            f.write("%s\n" % item)
-
+            writer.writerow(item)
+            
 def translate(text, language):
     tokenizer = None 
     model = None
