@@ -13,3 +13,20 @@
 
 ## Results using llama2-chat
 ![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/cc97e4f8-d413-4352-90b8-cbe7cf3da8bb)
+
+
+## Instructions 
+instructions to run script.py
+- example
+
+```rb
+python3 script.py --language French --model RADAR --ai ai_fr.txt --output_h human_test.csv --output_ai ai_test.csv --samples 512
+```
+- language French, German, Italian
+- model RADAR, RoBERTa, logrank, logp, entropy
+- --tr to use translations
+- ai_fr.txt #path/to/ai_sample_file
+- human_test.csv #path/to/output/res
+- ai_test.csv #path/to/output/res
+- number of samples
+  
