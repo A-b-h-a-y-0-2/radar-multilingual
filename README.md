@@ -20,7 +20,7 @@ instructions to run script.py
 - example
 
 ```rb
-python3 script.py --language French --model RADAR --ai ai_fr.txt --output_h human_test.csv --output_ai ai_test.csv --samples 512
+python3 script.py --language French --tr True --model RADAR --ai ai_fr.txt --output_h human_test.csv --output_ai ai_test.csv --samples 512
 ```
 - language French, German, Italian
 - model RADAR, RoBERTa, logrank, logp, entropy
