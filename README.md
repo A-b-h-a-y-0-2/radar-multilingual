@@ -14,6 +14,10 @@
 ## Results using llama2-chat
 ![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/cc97e4f8-d413-4352-90b8-cbe7cf3da8bb)
 
+## Results over Multitude dataset.
+![image](https://github.com/A-b-h-a-y-0-2/radar-multilingual/assets/143434285/a075edf9-bb98-467b-a450-b6e8a5b0f3eb)
+
+
 
 ## Instructions 
 instructions to run script.py
