@@ -11,7 +11,7 @@ import csv
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--language', type=str, help='choose language to test in', choices=['French', 'German', 'Italian', 'Spanish'])
-    parser.add_argument('--model', type=str, help='choose model to test with', choices=['RADAR', 'RoBERTa', 'logrank', 'logp', 'entropy'])
+    parser.add_argument('--model', type=str, help='choose model to test with', choices=['RADAR', 'RoBERTa', 'logrank', 'logp', 'entropy', 'all'])
     parser.add_argument('--tr', type=bool, help='choose translation mode', default=False,)
     parser.add_argument('--samples', type=int, help='number off samples to take.')
     parser.add_argument('--ai', type=str, help='path to the ai file')
@@ -278,18 +278,40 @@ if __name__ == '__main__':
         human = translate(human, args.language)
         ai = translate(ai, args.language)
     if args.model == 'RADAR':
-        analyse_radar(human, ai, args.output_h, args.output_ai)
+        output_h = os.path.join(args.output_h, 'RADAR_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'RADAR_'+ args.language +'_ai.csv')
+        analyse_radar(human, ai, output_h, output_ai)
     elif args.model == 'RoBERTa':
-        analyse_roberta(human, ai, args.output_h, args.output_ai)
+        output_h = os.path.join(args.output_h, 'RoBERTa_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'RoBERTa_'+ args.language +'_ai.csv')
+        analyse_roberta(human, ai, output_h, output_ai)
     elif args.model == 'logrank':
+        output_h = os.path.join(args.output_h, 'logrank_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'logrank_'+ args.language +'_ai.csv')
         analyse_logrank(human, ai, args.output_h, args.output_ai)
     elif args.model == 'logp':
+        output_h = os.path.join(args.output_h, 'logp_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'logp_'+ args.language +'_ai.csv')
         analyse_logp(human, ai, args.output_h, args.output_ai)
     elif args.model == 'entropy':
+        output_h = os.path.join(args.output_h, 'entropy_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'entropy_'+ args.language +'_ai.csv')
         analyse_entropy(human, ai, args.output_h, args.output_ai)
-
-    if args.tr:
-        human = translate(human, args.language)
-        ai = translate(ai, args.language)
+    elif args.model == 'all':
+        output_h = os.path.join(args.output_h, 'RADAR_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'RADAR_'+ args.language +'_ai.csv')
+        analyse_radar(human, ai, output_h, output_ai)
+        output_h = os.path.join(args.output_h, 'RoBERTa_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'RoBERTa_'+ args.language +'_ai.csv')
+        analyse_roberta(human, ai, output_h, output_ai)
+        output_h = os.path.join(args.output_h, 'logrank_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'logrank_'+ args.language +'_ai.csv')
+        analyse_logrank(human, ai, args.output_h, args.output_ai)
+        output_h = os.path.join(args.output_h, 'logp_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'logp_'+ args.language +'_ai.csv')
+        analyse_logp(human, ai, args.output_h, args.output_ai)
+        output_h = os.path.join(args.output_h, 'entropy_'+args.language+'_human.csv')
+        output_ai = os.path.join(args.output_ai, 'entropy_'+ args.language +'_ai.csv')
+        analyse_entropy(human, ai, args.output_h, args.output_ai)
     
     
