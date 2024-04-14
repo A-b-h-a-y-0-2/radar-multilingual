@@ -25,6 +25,7 @@ def get_args():
     parser.add_argument('--output', type=str, help='path to the output file for human preds')
     parser.add_argument('--dataset', type=str, help='choose dataset', choices=['wikipedia', 'multitude'])
     return parser.parse_args()
+
 def analyse(pred_ai, pred_human, output, model):
     ## Calculate the ROC metrics
     fpr, tpr, roc_auc = get_roc_metrics(pred_human, pred_ai)
@@ -377,7 +378,7 @@ if __name__ == '__main__':
         pred_h, pred_ai = analyse_entropy(human, ai)
         analyse(pred_ai, pred_h, args.output, args.model)
     elif args.model == 'binoculars':
-        pred_h, pred_ai = analyse_binoculars(human, ai)
+        pred_h, pred_ai = analyse_binocular(human, ai)
         analyse(pred_ai, pred_h, args.output, args.model)
     elif args.model == 'all':
         radar_pred_h, radar_pred_ai = analyse_radar(human, ai)
@@ -385,7 +386,7 @@ if __name__ == '__main__':
         logrank_pred_h, logrank_pred_ai =analyse_logrank(human, ai)
         logp_pred_h, logp_pred_ai = analyse_logp(human, ai)
         entropy_pred_h, entropy_pred_ai = analyse_entropy(human, ai)
-        binoculars_pred_h, binoculars_pred_ai = analyse_binoculars(human, ai)
+        binoculars_pred_h, binoculars_pred_ai = analyse_binocular(human, ai)
         analyse(radar_pred_ai, radar_pred_h, args.output, 'RADAR')
         analyse(roberta_pred_ai, roberta_pred_h, args.output, 'RoBERTa')
         analyse(logrank_pred_ai, logrank_pred_h, args.output, 'logrank')
