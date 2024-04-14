@@ -327,7 +327,10 @@ def translate(text, language):
 
 if __name__ == '__main__':
     args = get_args()
-    human, ai = load_data(args.language, args.ai, args.samples)
+    if args.dataset == 'multitude':
+        load_data_multi(args.model, args.output)
+    elif args.dataset == 'wikipedia':
+        human, ai = load_data_wiki(args.language, args.ai, args.samples)
     if args.tr:
         human = translate(human, args.language)
         ai = translate(ai, args.language)
