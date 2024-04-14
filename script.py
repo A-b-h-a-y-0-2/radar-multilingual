@@ -85,6 +85,11 @@ def load_data_multi(model, output):
             pred_h, pred_ai = analyse_logrank(human, ai)
         elif args.model == 'logp':
             pred_h, pred_ai = analyse_logp(human, ai)
+        elif args.model == 'entropy':
+            pred_h, pred_ai = analyse_entropy(human, ai)
+        elif args.model == 'binoculars':
+            pred_h, pred_ai = analyse_binocular(human, ai)
+        
 
         analyse(pred_ai, pred_h, output, model)
 
