@@ -17,7 +17,7 @@ from sklearn.metrics import accuracy_score, auc, roc_curve
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--language', type=str, help='choose language to test in', choices=['French', 'German', 'Italian', 'Spanish'])
-    parser.add_argument('--model', type=str, help='choose model to test with', choices=['RADAR', 'RoBERTa', 'logrank', 'logp', 'entropy', 'all'])
+    parser.add_argument('--model', type=str, help='choose model to test with', choices=['RADAR','binoculars', 'RoBERTa', 'logrank', 'logp', 'entropy', 'all'])
     parser.add_argument('--tr', type=bool, help='choose translation mode', default=False,)
     parser.add_argument('--samples', type=int, help='number off samples to take.')
     parser.add_argument('--ai', type=str, help='path to the ai file')
@@ -356,17 +356,22 @@ if __name__ == '__main__':
     elif args.model == 'entropy':
         pred_h, pred_ai = analyse_entropy(human, ai)
         analyse(pred_ai, pred_h, args.output, args.model)
+    elif args.model == 'binoculars':
+        pred_h, pred_ai = analyse_binoculars(human, ai)
+        analyse(pred_ai, pred_h, args.output, args.model)
     elif args.model == 'all':
         radar_pred_h, radar_pred_ai = analyse_radar(human, ai)
         roberta_pred_h, roberta_pred_ai = analyse_roberta(human, ai)
         logrank_pred_h, logrank_pred_ai =analyse_logrank(human, ai)
         logp_pred_h, logp_pred_ai = analyse_logp(human, ai)
         entropy_pred_h, entropy_pred_ai = analyse_entropy(human, ai)
+        binoculars_pred_h, binoculars_pred_ai = analyse_binoculars(human, ai)
         analyse(radar_pred_ai, radar_pred_h, args.output, 'RADAR')
         analyse(roberta_pred_ai, roberta_pred_h, args.output, 'RoBERTa')
         analyse(logrank_pred_ai, logrank_pred_h, args.output, 'logrank')
         analyse(logp_pred_ai, logp_pred_h, args.output, 'logp')
         analyse(entropy_pred_ai, entropy_pred_h, args.output, 'entropy')
+        analyse(binoculars_pred_ai, binoculars_pred_h, args.output, 'binoculars')
 
 
 
