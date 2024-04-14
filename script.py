@@ -11,7 +11,8 @@ import os
 import pandas as pd
 import csv
 from sklearn.metrics import accuracy_score, auc, roc_curve
-
+import numpy
+from binoculars import Binoculars
 
 
 def get_args():
@@ -191,6 +192,25 @@ def analyse_radar(human, ai):
             output_probs = F.log_softmax(detector(**inputs).logits,-1)[:,0].exp().tolist()
             output_probs_list_ai.append(output_probs)
 
+    return output_probs_list_human, output_probs_list_ai
+
+
+
+def analyse_binocular(human, ai):
+    print('Analyse binocular')
+    bino = Binoculars()
+
+    Text_input = human
+    # error = 0
+    output_probs_list_human =[]
+    for i  in tqdm(Text_input):
+        output = bino.compute_score(i) 
+        output_probs_list_human.append(output)
+    
+    output_probs_list_ai = []
+    for i in tqdm(ai):
+        output = bino.compute_score(i)
+        output_probs_list_ai.append(output)
     return output_probs_list_human, output_probs_list_ai
 
 def analyse_roberta(human, ai):
