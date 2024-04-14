@@ -13,6 +13,7 @@ import csv
 from sklearn.metrics import accuracy_score, auc, roc_curve
 
 
+
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--language', type=str, help='choose language to test in', choices=['French', 'German', 'Italian', 'Spanish'])
@@ -25,11 +26,17 @@ def get_args():
     return parser.parse_args()
 def analyse(pred_ai, pred_human, output, model):
     ## Calculate the ROC metrics
+    fpr, tpr, roc_auc = get_roc_metrics(pred_human, pred_ai)
     ## calculate confusion matrix
-    ## calculate accuracy
-    ## calaculate accuracy score \
+    tnr, fpr, tpr, fnr = accuracy(pred_human, pred_ai)
+    ## calaculate accuracy score
+    accuracy = accuracy_score([0] * len(pred_human) + [1] * len(pred_ai), pred_human + pred_ai)
     ## save to outpt file
-    pass
+    res = {'model': model, 'roc_auc': roc_auc, 'tnr': tnr, 'fpr': fpr, 'tpr': tpr, 'fnr': fnr, 'accuracy': accuracy}
+    with open(output, 'w') as f:
+        writer = csv.DictWriter(f, fieldnames=res.keys())
+        writer.writeheader()
+        writer.writerow(res)
 
 def get_roc_metrics(human_preds, ai_preds):
     # human_preds is the ai-generated probabiities of human-text
@@ -154,7 +161,7 @@ def load_data_wiki(language, samples):
     ai_text = ai_text[:samples]
     return human_text, ai_text
 
-def analyse_radar(human, ai, output_h, output_ai):
+def analyse_radar(human, ai):
     print('Analyse RADAR')
     device = "cuda"# example: cuda:0
     detector_path_or_id = "TrustSafeAI/RADAR-Vicuna-7B"
@@ -186,7 +193,7 @@ def analyse_radar(human, ai, output_h, output_ai):
 
     return output_probs_list_human, output_probs_list_ai
 
-def analyse_roberta(human, ai, output_h, output_ai):
+def analyse_roberta(human, ai):
     pipe = pipeline("text-classification", model="openai-community/roberta-large-openai-detector")
     output_probs_human = []
     for i in tqdm(human):
