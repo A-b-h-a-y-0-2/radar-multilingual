@@ -248,7 +248,7 @@ def get_entropy(text, base_tokenizer, base_model):
         neg_entropy = torch.nn.functional.softmax(logits, dim=-1) * torch.nn.functional.log_softmax(logits, dim=-1)
         return -neg_entropy.sum(-1).mean().item()
 
-def analyse_logrank(human, ai, output_h, output_ai):
+def analyse_logrank(human, ai):
     base_tokenizer = transformers.AutoTokenizer.from_pretrained("openai-community/gpt2-medium")
     base_model = transformers.AutoModelForCausalLM.from_pretrained("openai-community/gpt2-medium")
     base_model.eval()
@@ -266,7 +266,7 @@ def analyse_logrank(human, ai, output_h, output_ai):
 
     return output_probs_human, output_probs_ai
 
-def analyse_logp(human, ai, output_h, output_ai):
+def analyse_logp(human, ai):
     base_tokenizer = transformers.AutoTokenizer.from_pretrained("openai-community/gpt2-medium")
     base_model = transformers.AutoModelForCausalLM.from_pretrained("openai-community/gpt2-medium")
     base_model.eval()
@@ -282,7 +282,7 @@ def analyse_logp(human, ai, output_h, output_ai):
         output_probs_ai.append(output)
     return output_probs_human, output_probs_ai
 
-def analyse_entropy(human, ai, output_h, output_ai):
+def analyse_entropy(human, ai):
     base_tokenizer = transformers.AutoTokenizer.from_pretrained("openai-community/gpt2-medium")
     base_model = transformers.AutoModelForCausalLM.from_pretrained("openai-community/gpt2-medium")
     base_model.eval()
