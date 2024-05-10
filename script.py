@@ -11,8 +11,8 @@ import os
 import pandas as pd
 import csv
 from sklearn.metrics import accuracy_score, auc, roc_curve
-import numpy
-from binoculars import Binoculars
+import numpy as np
+
 
 
 def get_args():
@@ -32,9 +32,9 @@ def analyse(pred_ai, pred_human, output, model):
     ## calculate confusion matrix
     tnr, fpr, tpr, fnr = accuracy(pred_human, pred_ai)
     ## calaculate accuracy score
-    accuracy = accuracy_score([0] * len(pred_human) + [1] * len(pred_ai), pred_human + pred_ai)
+    score = accuracy_score([0] * len(pred_human) + [1] * len(pred_ai), pred_human + pred_ai)
     ## save to outpt file
-    res = {'model': model, 'roc_auc': roc_auc, 'tnr': tnr, 'fpr': fpr, 'tpr': tpr, 'fnr': fnr, 'accuracy': accuracy}
+    res = {'model': model, 'roc_auc': roc_auc, 'tnr': tnr, 'fpr': fpr, 'tpr': tpr, 'fnr': fnr, 'accuracy': score}
     with open(output, 'w') as f:
         writer = csv.DictWriter(f, fieldnames=res.keys())
         writer.writeheader()
@@ -67,106 +67,12 @@ def accuracy(human_pred, ai_pred):
             count_incorrect_ai +=1
     return  (count_correct_human/len(human_pred)), (count_incorrect_human)/len(human_pred), (count_correct_ai/len(ai_pred)), (count_incorrect_ai)/len(ai_pred)
 
-def load_data_multi(model, output):
-    df_main = pd.read_csv('multitude.csv')
-    df = df_main[['label', 'text','language']]
-    languages = ['de', 'en', 'es', 'nl', 'pt', 'ru', 'zh', 'ar', 'uk', 'cs', 'ca']
-    for language in languages:
-        df_test = df[df['language'] == language]
-        df_ai = df_test[df['label'] == 1]
-        df_human = df_test[df['label'] == 0]
-        human = df_human['text'].tolist()
-        ai = df_ai['text'].tolist()
-        if model == 'RADAR':
-            pred_h, pred_ai = analyse_radar(human, ai)
-        elif args.model == 'RoBERTa':
-            pred_h, pred_ai = analyse_roberta(human, ai)
-        elif args.model == 'logrank':
-            pred_h, pred_ai = analyse_logrank(human, ai)
-        elif args.model == 'logp':
-            pred_h, pred_ai = analyse_logp(human, ai)
-        elif args.model == 'entropy':
-            pred_h, pred_ai = analyse_entropy(human, ai)
-        elif args.model == 'binoculars':
-            pred_h, pred_ai = analyse_binocular(human, ai)
-        
-
-        analyse(pred_ai, pred_h, output, model)
-
-
-    
-
-def load_data_wiki(language, samples):
-    human_text = [] 
-    ai_text = []
-    ai_gen = False
-    model = input('Select model to generate ai corpus (Vicuna, llama2, None)')
-    if language == 'French':
-        datawiki_fr = load_dataset('wikipedia', '20220301.fr')
-        for i in range(samples):
-            human_text.append(datawiki_fr['train'][i]['text'])
-    elif language == 'German':
-        datawiki_de = load_dataset('wikipedia', '20220301.de')
-        for i in range(samples):
-            human_text.append(datawiki_de['train'][i]['text'])
-    elif language == 'Italian':
-        datawiki_it = load_dataset('wikipedia', '20220301.it')
-        for i in range(samples):
-            human_text.append(datawiki_it['train'][i]['text'])
-    else:
-        print('Language not supported')
-    
-    
-    if model == 'Vicuna':
-        ai_gen = True
-    elif model == 'llama2':
-        ai_gen = True
-    filepath = model+'_ai.txt'
-    if ai_gen:
-        if model == 'Vicuna':
-            vicuna(human, language, filepath, 'cuda')
-        elif model == 'llama2':
-            llama(human, language, filepath, 'cuda')
-    
-    
-    if language == 'French':
-        with open(filepath,'r') as f:
-            line = f.readline()
-            while line:
-                line = line.strip()
-                line = line.replace('start : ',' ')
-                line = line.replace('[\"',' ')
-                line = line.replace('[\'',' ')
-                line = line.replace('\"]',' ')
-                line = line.replace('\']',' ')
-                ai_text.append(line)
-                line = f.readline()
-    elif language == 'German':
-        with open(filepath,'r') as f:
-            line = f.readline()
-            while line:
-                line = line.strip()
-                line = line.replace('start : ',' ')
-                line = line.replace('[\"',' ')
-                line = line.replace('[\'',' ')
-                line = line.replace('\"]',' ')
-                line = line.replace('\']',' ')
-                ai_text.append(line)
-                line = f.readline()
-    elif language == 'Italian':
-        with open(filepath,'r') as f:
-            line = f.readline()
-            while line:
-                line = line.strip()
-                line = line.replace('start : ',' ')
-                line = line.replace('[\"',' ')
-                line = line.replace('[\'',' ')
-                line = line.replace('\"]',' ')
-                line = line.replace('\']',' ')
-                ai_text.append(line)
-                line = f.readline()
-    ai_text = ai_text[:samples]
-    return human_text, ai_text
+def load_data(filepath, samples):
+    df_main = pd.read_csv(filepath)
+    df_main = df_main.sample(n=samples)
+    human = df_main['human'].tolist()
+    ai = df_main['ai'].tolist()
+    return human, ai
 
 def analyse_radar(human, ai):
     print('Analyse RADAR')
@@ -360,10 +266,7 @@ def translate(text, language):
 
 if __name__ == '__main__':
     args = get_args()
-    if args.dataset == 'multitude':
-        load_data_multi(args.model, args.output)
-    elif args.dataset == 'wikipedia':
-        human, ai = load_data_wiki(args.language, args.ai, args.samples)
+    human, ai = load_data(args.filepath, args.samples)
     if args.tr:
         human = translate(human, args.language)
         ai = translate(ai, args.language)
