@@ -1,20 +1,23 @@
 import argparse
 import torch
-from transformers import PegasusForConditionalGeneration, PegasusTokenizer, pipeline, T5Tokenizer, T5ForConditionalGeneration,sent_tokenize, AutoModelForSequenceClassification, AutoModelForCausalLM, AutoTokenizer
+from transformers import PegasusForConditionalGeneration, PegasusTokenizer, pipeline, T5Tokenizer, T5ForConditionalGeneration, AutoModelForSequenceClassification, AutoModelForCausalLM, AutoTokenizer
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
-from .binoculars import Binoculars
+#from .binoculars import Binoculars
 import time
 import torch.nn.functional as F
+import nltk
+from nltk.tokenize import sent_tokenize
+nltk.download('punkt')
 
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type = str, help='path to dataset', choices=['en', 'es', 'ru', 'en3'] )
+    parser.add_argument('--dataset', type = str, help='path to dataset' )
     parser.add_argument('--output', type=str, help='path to output file')
     parser.add_argument('--custom', type=str,help='Path to custom model')
-    parser.add_argument('--mode', type=str, help='Mhich way to paeaphrase', choicees= ['backtranslation', 'transformer', 'translation'])
+    parser.add_argument('--mode', type=str, help='Mhich way to paeaphrase', choices= ['backtranslation', 'transformer', 'translation'])
     return parser.parse_args()
 args = get_args()
 def psp_paraphrase(input_df,num_return_sequences=1,num_beams=1):
@@ -193,18 +196,18 @@ def analyse_entropy(input_df):
         output_probs.append(output)
     input_df['entropy'] = output_probs
     return input_df
-def checkBino(input_df):
-    bino = Binoculars()
-    output_probs = []
-    output_preds = []
-    for i in tqdm(input_df['text']):
-        output_pred = bino.predict(i)
-        output_prob = bino.compute_score(i)
-        output_preds.append(output_pred)
-        output_probs.append(output_prob)
-    input_df['preds'] = output_preds
-    input_df['score'] = output_probs
-    return input_df
+# def checkBino(input_df):
+#     bino = Binoculars()
+#     output_probs = []
+#     output_preds = []
+#     for i in tqdm(input_df['text']):
+#         output_pred = bino.predict(i)
+#         output_prob = bino.compute_score(i)
+#         output_preds.append(output_pred)
+#         output_probs.append(output_prob)
+#     input_df['preds'] = output_preds
+#     input_df['score'] = output_probs
+#     return input_df
 def checkStat(input_df):
     logp_df = analyse_logp(input_df)
     logrank_df = analyse_logrank(input_df)
@@ -321,16 +324,16 @@ if __name__== "__main__":
             roberta_es.to_csv(args.output + 'roberta_bt_es.csv', index=False)
             roberta_hi.to_csv(args.output + 'roberta_bt_hi.csv', index=False)
             roberta_ar.to_csv(args.output + 'roberta_bt_ar.csv', index=False)
-            bino_zh = checkBino(bt_df_zh)
-            bino_ru = checkBino(bt_df_ru)
-            bino_es = checkBino(bt_df_es)
-            bino_hi = checkBino(bt_df_hi)
-            bino_ar = checkBino(bt_df_ar)
-            bino_zh.to_csv(args.output + 'bino_bt_zh.csv', index=False)
-            bino_ru.to_csv(args.output + 'bino_bt_ru.csv', index=False)
-            bino_es.to_csv(args.output + 'bino_bt_es.csv', index=False)
-            bino_hi.to_csv(args.output + 'bino_bt_hi.csv', index=False)
-            bino_ar.to_csv(args.output + 'bino_bt_ar.csv', index=False)
+            # bino_zh = checkBino(bt_df_zh)
+            # bino_ru = checkBino(bt_df_ru)
+            # bino_es = checkBino(bt_df_es)
+            # bino_hi = checkBino(bt_df_hi)
+            # # bino_ar = checkBino(bt_df_ar)
+            # bino_zh.to_csv(args.output + 'bino_bt_zh.csv', index=False)
+            # bino_ru.to_csv(args.output + 'bino_bt_ru.csv', index=False)
+            # bino_es.to_csv(args.output + 'bino_bt_es.csv', index=False)
+            # bino_hi.to_csv(args.output + 'bino_bt_hi.csv', index=False)
+            # bino_ar.to_csv(args.output + 'bino_bt_ar.csv', index=False)
         pass
     elif args.mode == 'transformer':
         dp_para = dp_paraphrase(args.dataset, lex_diversity=60, order_diversity=0, do_sample=True, top_p=0.75, top_k=None, max_length=512)
@@ -357,10 +360,10 @@ if __name__== "__main__":
             roberta_psp = checkRoberta(psp_para)
             roberta_dp.to_csv(args.output + 'roberta_dp.csv', index=False)
             roberta_psp.to_csv(args.output + 'roberta_psp.csv', index=False)
-            bino_dp = checkBino(dp_para)
-            bino_psp = checkBino(psp_para)
-            bino_dp.to_csv(args.output + 'bino_dp.csv', index=False)
-            bino_psp.to_csv(args.output + 'bino_psp.csv', index=False)
+            # bino_dp = checkBino(dp_para)
+            # bino_psp = checkBino(psp_para)
+            # bino_dp.to_csv(args.output + 'bino_dp.csv', index=False)
+            # bino_psp.to_csv(args.output + 'bino_psp.csv', index=False)
     elif args.mode == 'translation':
         t_df_zh = translate(args.dataset, 'zh')
         t_df_ru = translate(args.dataset, 'ru')
@@ -397,12 +400,12 @@ if __name__== "__main__":
             roberta_zh.to_csv(args.output + 'roberta_t_zh.csv', index=False)
             roberta_es.to_csv(args.output + 'roberta_t_es.csv', index=False)
             roberta_ru.to_csv(args.output + 'roberta_t_ru.csv', index=False)
-            bino_zh = checkBino(t_df_zh)
-            bino_es = checkBino(t_df_es)
-            bino_ru = checkBino(t_df_ru)
-            bino_zh.to_csv(args.output + 'bino_t_zh.csv', index=False)
-            bino_es.to_csv(args.output + 'bino_t_es.csv', index=False)
-            bino_ru.to_csv(args.output + 'bino_t_ru.csv', index=False)
+            # bino_zh = checkBino(t_df_zh)
+            # bino_es = checkBino(t_df_es)
+            # bino_ru = checkBino(t_df_ru)
+            # bino_zh.to_csv(args.output + 'bino_t_zh.csv', index=False)
+            # bino_es.to_csv(args.output + 'bino_t_es.csv', index=False)
+            # bino_ru.to_csv(args.output + 'bino_t_ru.csv', index=False)
     else:
         raise ValueError("Invalid mode. Choose from 'backtranslation', 'transformer', 'translation'")
     
